@@ -1,0 +1,30 @@
+public class RecursionExercise01 {
+  public static void main(String[] args) {
+    B b1 = new B();
+    int n = 7;
+    int res = b1.fibonacci(n);
+    if (res != -1) {
+      System.out.println("当n=" + n + "时对应的斐波那契数=" + res);
+    }
+  }
+}
+
+class B {
+  // 化繁为简思路分析
+  // 1.当n=1时斐波那契数是1
+  // 2.当n=2时斐波那契数是1
+  // 3.当n>=3时斐波那契数是前两个数的和
+  // 这里就是一个递归的思路
+  public int fibonacci(int n) {
+    if (n >= 1) {
+      if (n == 1 || n == 2) {
+        return 1;
+      } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+    } else {
+      System.out.println("要求输入的n>=1的整数");
+      return -1;
+    }
+  }
+}
