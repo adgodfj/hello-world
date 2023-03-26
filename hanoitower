@@ -1,0 +1,26 @@
+public class HanoiTower {
+  public static void main(String[] args) {
+    Tower tower = new Tower();
+    tower.move(5, 'A', 'B', 'C');
+  }
+}
+
+class Tower {
+  // 1.方法名move
+  // 2.没有返回值
+  // 3.形参列表:num表示要移动盘的个数,a,b,c表示A塔B塔C塔
+  public void move(int num, char a, char b, char c) {
+    // 如果只有一个盘
+    if (num == 1) {
+      System.out.println(a + "->" + c);
+    }else{
+    // 如果有多个盘，可以看成两个盘，最下面的和上面的(num-1)个盘
+    // (1)将起始柱a上面的所有盘移动到目标柱b，借助辅助柱c
+    move(num - 1, a, c, b);
+    // (2)把下面的盘移动到c
+    System.out.println(a + "->" + c);
+    // (3)将起始柱b所有盘移动到目标柱c,借助辅助柱a
+    move(num - 1, b, a, c);
+    }
+  }
+}
